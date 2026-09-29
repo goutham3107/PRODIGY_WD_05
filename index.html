@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <meta name="description" content="A beautiful and responsive weather application fetching real-time data based on location.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>WeatherApp</h1>
+            <div class="search-container">
+                <input type="text" id="city-input" placeholder="Search for a city..." autocomplete="off">
+                <button id="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+                <button id="location-btn" aria-label="Use Current Location" title="Use current location"><i class="fas fa-location-crosshairs"></i></button>
+            </div>
+        </header>
+
+        <main id="weather-main" class="hidden">
+            <div class="weather-card current-weather glass">
+                <div class="weather-info">
+                    <h2 id="city-name">Loading...</h2>
+                    <p id="date-time"></p>
+                    <div class="temp-condition">
+                        <div class="temp">
+                            <span id="temperature">--</span>°C
+                        </div>
+                        <div class="condition">
+                            <i id="weather-icon" class="fas fa-cloud"></i>
+                            <span id="weather-desc">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weather-details">
+                <div class="detail-card glass">
+                    <i class="fas fa-temperature-half"></i>
+                    <div class="detail-info">
+                        <span class="label">Feels Like</span>
+                        <span class="value" id="feels-like">--°C</span>
+                    </div>
+                </div>
+                <div class="detail-card glass">
+                    <i class="fas fa-droplet"></i>
+                    <div class="detail-info">
+                        <span class="label">Humidity</span>
+                        <span class="value" id="humidity">--%</span>
+                    </div>
+                </div>
+                <div class="detail-card glass">
+                    <i class="fas fa-wind"></i>
+                    <div class="detail-info">
+                        <span class="label">Wind Speed</span>
+                        <span class="value" id="wind-speed">-- km/h</span>
+                    </div>
+                </div>
+                <div class="detail-card glass">
+                    <i class="fas fa-gauge"></i>
+                    <div class="detail-info">
+                        <span class="label">Pressure</span>
+                        <span class="value" id="pressure">-- hPa</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Fetching weather data...</p>
+        </div>
+
+        <div id="error-message" class="hidden glass-error">
+            <i class="fas fa-circle-exclamation"></i>
+            <p id="error-text">City not found. Please try again.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
